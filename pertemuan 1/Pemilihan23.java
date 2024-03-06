@@ -47,15 +47,15 @@ public class Pemilihan23 {
         System.out.println("==============================");
         System.out.println("==============================");
 
-        // Mengecek nilai valid atau tidak
+        // Memeriksa apakah nilai valid
         if (nilaiAkhir < 0 || nilaiAkhir > 100) {
             System.out.println("Nilai tidak valid");
         } else {
 
-            // Tampil nilai akhir
+            // Menampilkan nilaiAkhir
             System.out.println("Nilai Akhir: " + nilaiAkhir);
 
-            // Tampil nilai huruf
+            // Menampilkan nilaiHuruf
             System.out.println("Nilai Huruf: " + nilaiHuruf);
 
             System.out.println("==============================");
@@ -64,7 +64,8 @@ public class Pemilihan23 {
             if (nilaiAkhir >= nilaiMinimum) {
                 System.out.println("SELAMAT ANDA LULUS");
             } else if (nilaiAkhir <= nilaiMinimum) {
-                System.out.println("ANDA TIDAK LULUS");
+                System.out.println("Mohon Maaf");
+
             }
         }
     }

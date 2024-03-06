@@ -20,7 +20,7 @@ public class Array23 {
         // Memasukkan inputan
         for (int i = 0; i < jmlMatkul; i++) {
             System.out.print("\nMasukkan nama Mata Kuliah ke-" + (i + 1) + ": ");
-            input.nextLine(); // Untuk hapus karakter newline yang tersisa
+            input.nextLine(); // Untuk menghapus karakter newline yang tersisa
             namaMatkul[i] = input.nextLine();
             System.out.print("Masukkan bobot SKS Mata Kuliah ke-" + (i + 1) + ": ");
             bobotSKS[i] = input.nextInt();
@@ -70,5 +70,5 @@ public class Array23 {
         System.out.println("============================================================");
 
         System.out.println("\nIP: " + String.format("%.2f", IPSemester));
-    }   
+    }
 }

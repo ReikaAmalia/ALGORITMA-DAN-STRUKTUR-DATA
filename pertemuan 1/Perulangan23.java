@@ -1,11 +1,12 @@
 import java.util.Scanner;
 
 public class Perulangan23 {
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
         // Memasukkan NIM
-        System.out.print("Masukkan NIM: ");
+        System.out.print("Input NIM: ");
         String nim = input.nextLine();
         int n = Integer.parseInt(nim.substring(nim.length() - 2));
 
@@ -14,6 +15,7 @@ public class Perulangan23 {
         }
 
         System.out.println("n : " + n);
+
         for (int i = 1; i <= n; i++) {
             if (i != 6 && i != 10) {
                 if (i % 2 == 0) {

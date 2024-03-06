@@ -70,10 +70,10 @@ public class PersegiPanjang23 {
 dibawah ini akan memunculkan error saat dijalankan. Mengapa?<br>
 - hanya dideklarasikan namun tidak diinisialisasikan.<br>
 4. Modifikasi kode program pada praktikum 3.3 agar length array menjadi inputan dengan Scanner!<br>
-- 
+- ![alt text](<image/Cuplikan layar 2024-03-06 000029.png>)<br>
 5. Apakah boleh Jika terjadi duplikasi instansiasi array of objek, misalkan saja instansiasi dilakukan
 pada ppArray[i] sekaligus ppArray[0]?Jelaskan !<br>
-- 
+- Duplikasi instansiasi array of objek berpotensi menimbulkan masalah. Sebaiknya membuat salinan independen dari objek yang ingin diduplikasi untuk menghindari masalah referensi yang sama, perubahan pada satu objek memengaruhi yang lain, dan kesalahan logika.
 
 ## Percobaan 3: Penambahan Operasi Matematika di Dalam Method
 
@@ -109,11 +109,15 @@ hitungLuas() dan hitungKeliling().<br>
 limas segi empat sama sisi, dan bola. Buatlah 3 (tiga) class sesuai dengan jumlah jenis bangun
 ruang. Buatlah satu main class untuk membuat array of objects yang menginputkan atributatribut yang ada menggunakan konstruktor semua bangun ruang tersebut. Dengan ketentuan,
 a. Buat looping untuk menginputkan masing-masing atributnya, kemudian tampilkan
-luas permukaan dan volume dari tiap jenis bangun ruang tersebut.
-b. Pada kerucut, inputan untuk atribut hanya jari-jari dan sisi miring
+luas permukaan dan volume dari tiap jenis bangun ruang tersebut.<br>
+![alt text](image/mainbangunruang.png)<br>
+b. Pada kerucut, inputan untuk atribut hanya jari-jari dan sisi miring<br>
+![alt text](image/kerucut.code.png)<br>
 c. Pada limas segi empat sama sisi, inputan untuk atribut hanya panjang sisi alas dan
-tinggi limas
+tinggi limas<br>
+![alt text](image/LimasSegiEmpat.code.png)<br>
 d. Pada bola, inpuntan untuk atribut hanya jari-jari
+![alt text](image/bola.code.png)<br>
 2. Sebuah kampus membutuhkan program untuk menampilkan informasi mahasiswa berupa nama,
 nim, jenis kelamin dan juga IPK mahasiswa. Program dapat menerima input semua informasi
 tersebut, kemudian menampilkanya kembali ke user. Implementasikan program tersebut jika
@@ -147,8 +151,11 @@ Data Mahasiswa ke-3
 nama : Reza
 nim : 8765398
 Jenis kelamin : L
-Nilai IPK : 3.8
+Nilai IPK : 3.8<br>
+![alt text](image/MahasiswaMainNo2.code.png)<br>
 3. Modifikasi program Latihan no.2 di atas, sehingga bisa digunakan untuk menghitung rata-rata IPK,
 serta menampilkan data mahasiswa dengan IPK terbesar! (gunakan method untuk masing-masing
-proses tersebut)
+proses tersebut)<br>
+![alt text](image/Mahasiswa.code.png)<br>
+
 
