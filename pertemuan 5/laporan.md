@@ -28,8 +28,12 @@ for?Buktikan!
 
 Percobaan 2
 
-code
+code:<br>
+![alt text](image/codepangkat.png)<br>
+![alt text](image/codepangkat.main.png)<br>
 
+output:<br>
+![alt text](<image/output percb 5.2.png>)<br>
 
 
 4.3.3 Pertanyaan

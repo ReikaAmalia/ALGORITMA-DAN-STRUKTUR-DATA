@@ -11,18 +11,18 @@ public class pangkatMain23 {
         for (int i = 0; i < elemen; i++) {
             png[i] = new pangkat23();
             System.out.println("Masukkan nilai yang hendak dipangkatkan: ");
-            int nilai = sc.nextInt();
+            png[i].nilai = sc.nextInt();
             System.out.println("Masukkan nilai pemangkat: ");
-            int pangkat = sc.nextInt();
+            png[i].pangkat = sc.nextInt();
         }
 
         System.out.println("HASIL PANGKAT - BRUTE FORCE");
-        for (int i = 0; i < elemen; i++) {
+        for (int i = 0; i < png.length; i++) {
             System.out.println("Hasil dari " + png[i].nilai + "pangkat " + png[i].pangkat + "adalah "
                     + png[i].pangkatBF(png[i].nilai, png[i].pangkat));
         }
         System.out.println("HASIL PANGKAT - DIVIDE AND CONQUER");
-        for (int i = 0; i < elemen; i++) {
+        for (int i = 0; i < png.length; i++) {
             System.out.println("Hasil dari " + png[i].nilai + "pangkat " + png[i].pangkat + "adalah "
                     + png[i].pangkatBF(png[i].nilai, png[i].pangkat));
         }
