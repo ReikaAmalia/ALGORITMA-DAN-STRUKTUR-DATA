@@ -2,9 +2,6 @@ public class DaftarMahasiswaBerprestasi {
 
     Mahasiswa23 listMhs[] = new Mahasiswa23[5];
     int idx;
-    // setelah ini tulisan method tambah()
-    // setelah ini tulisan method tampil()
-    // setelah ini tulisan method bubbleSort()
 
     // setelah ini tuliskan method tambah()
     void tambah(Mahasiswa23 m) {
@@ -54,7 +51,7 @@ public class DaftarMahasiswaBerprestasi {
         }
     }
 
-    void insertSort() {
+    void insertionSortDescending() {
         for (int i = 1; i < listMhs.length; i++) {
             Mahasiswa23 temp = listMhs[i];
             int j = i;
