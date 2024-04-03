@@ -24,15 +24,17 @@ output:
 ![alt text](<image/output percobaan 1 (2).png>)<br>
 
 5.2.3 Pertanyaan
-1. Terdapat di method apakah proses bubble sort?
+1. Terdapat di method apakah proses bubble sort?<br>
 2. Di dalam method bubbleSort(), terdapat baris program seperti di bawah ini:
-Untuk apakah proses tersebut?
-3. Perhatikan perulangan di dalam bubbleSort() di bawah ini:
-a. Apakah perbedaan antara kegunaan perulangan i dan perulangan j?
+Untuk apakah proses tersebut?<br>
+3. Perhatikan perulangan di dalam bubbleSort() di bawah ini:<br>
+a. Apakah perbedaan antara kegunaan perulangan i dan perulangan j?<br>
 b. Mengapa syarat dari perulangan i adalah i<listMhs.length-1 ?
-c. Mengapa syarat dari perulangan j adalah j<listMhs.length-i ?
+<br>
+c. Mengapa syarat dari perulangan j adalah j<listMhs.length-i ? 
+<br>
 d. Jika banyak data di dalam listMhs adalah 50, maka berapakali perulangan i akan
-berlangsung? Dan ada berapa Tahap bubble sort yang ditempuh?
+berlangsung? Dan ada berapa Tahap bubble sort yang ditempuh?<br>
 
 percobaan 2
 code:
