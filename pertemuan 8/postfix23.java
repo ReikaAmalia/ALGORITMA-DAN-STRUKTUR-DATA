@@ -55,7 +55,7 @@ public class postfix23 {
         }
     }
 
-    public String konversi (String Q) {
+    public String konversi(String Q) {
         String p = "";
         char c;
         for (int i = 0; i < n; i++) {
@@ -63,7 +63,22 @@ public class postfix23 {
             if (IsOperand(c)) {
                 p = p + c;
             }
-            if (c == '(')
+            if (c == '(') {
+                push(c);
+            }
+            if (c == ')') {
+                while (stack[top] != '(') {
+                    p = p + pop();
+                }
+                pop();
+            }
+            if (IsOperator(c)) {
+                while (derajat(stack[top]) >= derajat(c)) {
+                    p = p + pop();
+                }
+                push(c);
+            }
         }
+        return p;
     }
 }

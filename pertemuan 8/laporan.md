@@ -302,3 +302,116 @@ bagaimana hasilnya? Jelaskan alasannya!
 2. Jelaskan alur kerja dari method konversiDesimalKeBiner!
 
 percobaan 3
+
+code:<br>
+public class postfix23 {
+    int n, top;
+    char[] stack;
+
+    public postfix23(int total) {
+        n = total;
+        top = -1;
+        stack = new char[n];
+        push('(');
+    }
+
+    public void push(char c) {
+        top++;
+        stack[top] = c;
+    }
+
+    public char pop() {
+        char item = stack[top];
+        top--;
+        return item;
+    }
+
+    public boolean IsOperand(char c) {
+        if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= 'O' && c <= '9') || c == ' ' || c == '.') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean IsOperator(char c) {
+        if (c == '^' || c == '%' || c == '/' || c == '*' || c == '-' || c == '+') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public int derajat(char c) {
+        switch (c) {
+            case '^':
+                return 3;
+            case '%':
+                return 2;
+            case '/':
+                return 2;
+            case '*':
+                return 2;
+            case '-':
+                return 1;
+            case '+':
+                return 1;
+            default:
+                return 0;
+        }
+    }
+
+    public String konversi(String Q) {
+        String p = "";
+        char c;
+        for (int i = 0; i < n; i++) {
+            c = Q.charAt(i);
+            if (IsOperand(c)) {
+                p = p + c;
+            }
+            if (c == '(') {
+                push(c);
+            }
+            if (c == ')') {
+                while (stack[top] != '(') {
+                    p = p + pop();
+                }
+                pop();
+            }
+            if (IsOperator(c)) {
+                while (derajat(stack[top]) >= derajat(c)) {
+                    p = p + pop();
+                }
+                push(c);
+            }
+        }
+        return p;
+    }
+}
+
+code main:<br>
+import java.util.Scanner;
+
+public class postfixmain23 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String P, Q;
+        System.out.println("Masukkan ekspresi matematika (infix) : ");
+        Q = sc.nextLine();
+        Q = Q.trim();
+        Q = Q + ")";
+        int total = Q.length();
+        postfix23 post = new postfix23(total);
+        P = post.konversi(Q);
+        System.out.println("Postfix: " + P);
+    }
+}
+
+output:<br>
+![alt text](<image/output percobaan  3.png>)<br>
+
+2.3.3 Pertanyaan
+1. Pada method derajat, mengapa return value beberapa case bernilai sama? Apabila return
+value diubah dengan nilai berbeda-beda setiap case-nya, apa yang terjadi?
+2. Jelaskan alur kerja method konversi!
+3. Pada method konversi, apa fungsi dari potongan kode berikut?
