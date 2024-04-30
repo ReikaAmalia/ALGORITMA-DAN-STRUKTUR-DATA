@@ -33,11 +33,15 @@ public class queue {
             if (isEmpty()) {
                 front = rear = 0;
             } else {
-                rear++;
+                if (rear == max - 1) {
+                    rear = 0;
+                } else {
+                    rear++;
+                }
             }
+            data[rear] = dt;
+            size++;
         }
-        data[rear] = dt;
-        size++;
     }
 
     public nasabah23 dequeue() {
@@ -65,6 +69,15 @@ public class queue {
         if (!isEmpty()) {
             System.out.println("Elemen terdepan : " + data[front].norek + " " + data[front].nama + " "
                     + data[front].alamat + " " + data[front].umur + " " + data[front].saldo);
+        } else {
+            System.out.println("Queue masih kosong");
+        }
+    }
+
+    void peekRear() {
+        if (!isEmpty()) {
+            System.out.println("Elemen terdepan : " + data[rear].norek + " " + data[rear].nama + " "
+                    + data[rear].alamat + " " + data[rear].umur + " " + data[rear].saldo);
         } else {
             System.out.println("Queue masih kosong");
         }

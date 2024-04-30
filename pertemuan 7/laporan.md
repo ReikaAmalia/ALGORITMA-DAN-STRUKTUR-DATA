@@ -25,15 +25,31 @@ output:<br>
 ![alt text](<image/output ke 2 percb 7.png>)<br>
 
 6.2.3. Pertanyaan
-1. Jelaskan fungsi break yang ada pada method FindSeqSearch!
-- Fungsinya yaitu menghentikan perulangan ketika menemukan nilai cari pada kumpulan atribut kode buku di array of object
+1. Jelaskan fungsi break yang ada pada method FindSeqSearch!<br>
+- Fungsinya yaitu menghentikan perulangan ketika menemukan nilai cari pada kumpulan atribut kode buku di array of object<br>
 2. Jika Data Kode Buku yang dimasukkan tidak terurut dari kecil ke besar. Apakah program masih
 dapat berjalan? Apakah hasil yang dikeluarkan benar? Tunjukkan hasil screenshoot untuk bukti
-dengan kode Buku yang acak. Jelaskan Mengapa hal tersebut bisa terjadi?
-- program yang diberikan akan tetap berjalan meskipun data kode buku yang dimasukkan tidak terurut dari kecil ke besar
+dengan kode Buku yang acak. Jelaskan Mengapa hal tersebut bisa terjadi?<br>
+- program yang diberikan akan tetap berjalan meskipun data kode buku yang dimasukkan tidak terurut dari kecil ke besar<br>
 3. Buat method baru dengan nama FindBuku menggunakan konsep sequential search dengan tipe
 method dari FindBuku adalah BukuNoAbsen. Sehingga Anda bisa memanggil method
-tersebut pada class BukuMain seperti gambar berikut :
+tersebut pada class BukuMain seperti gambar berikut :<br>
+- public Buku23 FindBuku(int cari) {
+        int posisi = -1;
+        for (int j = 0; j < listBk.length; j++) {
+            if (listBk[j].kodeBuku == cari) {
+                posisi = j;
+                break;
+            }
+        }
+        return listBk[posisi];
+    }
+
+
+
+    Buku15 dataBuku = data.FindBuku(cari);
+        dataBuku.tampilDataBuku();
+
 
 6.3.1. Langkah-langkah Percobaan Binary Search
 
@@ -57,11 +73,12 @@ output:<br>
             }
 3. Jika data Kode Buku yang dimasukkan tidak urut. Apakah program masih dapat berjalan? Mengapa
 demikian! Tunjukkan hasil screenshoot untuk bukti dengan kode Buku yang acak. Jelaskan
-Mengapa hal tersebut bisa terjadi?
-- Program masih akan berjalan meskipun data Kode Buku yang dimasukkan tidak urut. karena pencarian dilakukan baik dengan pencarian berurutan (sequential search) maupun pencarian biner (binary search)
+Mengapa hal tersebut bisa terjadi?<br>
+- Program masih akan berjalan meskipun data Kode Buku yang dimasukkan tidak urut. karena pencarian dilakukan baik dengan pencarian berurutan (sequential search) maupun pencarian biner (binary search) <br>
 4. Jika Kode Buku yang dimasukkan dari Kode Buku terbesar ke terkecil (missal : 20215, 20214,
 20212, 20211, 20210) dan elemen yang dicari adalah 20210. Bagaimana hasil dari binary search?
-Apakah sesuai? Jika tidak sesuai maka ubahlah kode program binary seach agar hasilnya sesuai!
+Apakah sesuai? Jika tidak sesuai maka ubahlah kode program binary seach agar hasilnya sesuai!<br>
+- 
 
 6.4.1. Langkah-langkah Percobaan Merge Sort
 
@@ -78,6 +95,7 @@ output:<br>
 - Ubah tipe data dari kode Buku yang awalnya int menjadi String
 - Tambahkan method untuk pencarian kode Buku (bertipe data String) dengan menggunakan
 sequential search dan binary search.
+
 2. Modifikasi percobaan searching diatas dengan ketentuan berikut ini 
 
 - Tambahkan method pencarian judul buku menggunakan sequential search dan binary

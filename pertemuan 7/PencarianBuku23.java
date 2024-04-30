@@ -35,7 +35,7 @@ public class PencarianBuku23 {
             if (cari == listBk[mid].kodeBuku) {
                 return (mid);
             } else if (listBk[mid].kodeBuku > cari) {
-                return FindBinarySearch(cari, left, mid +-1);
+                return FindBinarySearch(cari, left, mid + -1);
             } else {
                 return FindBinarySearch(cari, mid + 1, right);
             }
@@ -50,6 +50,17 @@ public class PencarianBuku23 {
         } else {
             System.out.println("data " + x + "tidak ditemukan");
         }
+    }
+
+    public Buku23 FindBuku(int cari) {
+        int posisi = -1;
+        for (int j = 0; j < listBk.length; j++) {
+            if (listBk[j].kodeBuku == cari) {
+                posisi = j;
+                break;
+            }
+        }
+        return listBk[posisi];
     }
 
     public void TampilData(int x, int pos) {

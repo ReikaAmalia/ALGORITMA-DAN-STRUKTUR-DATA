@@ -48,6 +48,7 @@ public class Queue23 {
         int dt = 0;
         if (isEmpty()) {
             System.out.println("Queue masih kosong");
+            System.exit(1);
         } else {
             dt = data[front];
             size--;
@@ -64,17 +65,17 @@ public class Queue23 {
         return dt;
     }
 
-    void peak() {
+    void peek() {
         if (!isEmpty()) {
             System.out.println("Elemen terdepan : " + data[front]);
         } else {
-            System.out.println("queue masih kosong");
+            System.out.println("Queue masih kosong");
         }
     }
 
     void print() {
         if (isEmpty()) {
-            System.out.println("queue masih kosong");
+            System.out.println("Queue masih kosong");
         } else {
             int i = front;
             while (i != rear) {
@@ -82,8 +83,7 @@ public class Queue23 {
                 i = (i + 1) % max;
             }
             System.out.println(data[i] + " ");
-            System.out.println("jumlah elemen = " + size);
-
+            System.out.println("Jumlah elemen = " + size);
         }
     }
 
@@ -91,7 +91,9 @@ public class Queue23 {
         if (!isEmpty()) {
             front = rear = -1;
             size = 0;
-            System.out.println("queue berhasil dikosongkan");
+            System.out.println("Queue berhasil dikosongkan");
+        } else {
+            System.out.println("Queue masih kosong");
         }
     }
 }
