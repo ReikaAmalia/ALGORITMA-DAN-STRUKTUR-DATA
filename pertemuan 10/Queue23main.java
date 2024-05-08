@@ -14,20 +14,20 @@ public class Queue23main {
     }
 
     public static void main(String[] args) {
-        Scanner sc15 = new Scanner(System.in);
+        Scanner sc23 = new Scanner(System.in);
         System.out.print("Masukkan kapasitas queue : ");
-        int n = sc15.nextInt();
+        int n = sc23.nextInt();
 
         Queue23 Q = new Queue23(n);
 
         int pilih = 0;
         do {
             menu();
-            pilih = sc15.nextInt();
+            pilih = sc23.nextInt();
             switch (pilih) {
                 case 1:
                     System.out.print("Masukkan data baru : ");
-                    int dataMasuk = sc15.nextInt();
+                    int dataMasuk = sc23.nextInt();
                     Q.enqueue(dataMasuk);
                     break;
                 case 2:
