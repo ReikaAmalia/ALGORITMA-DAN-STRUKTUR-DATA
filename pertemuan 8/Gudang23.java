@@ -1,6 +1,5 @@
-import java.io.StringReader;
-
 public class Gudang23 {
+
     Barang23[] tumpukan;
     int size, top;
 
@@ -26,6 +25,10 @@ public class Gudang23 {
         }
     }
 
+    public boolean isEmpty() {
+        return top == -1;
+    }
+
     public void tambahBarang(Barang23 brg) {
         if (!cekPenuh()) {
             top++;
@@ -40,8 +43,8 @@ public class Gudang23 {
         if (!cekKosong()) {
             Barang23 delete = tumpukan[top];
             top--;
-            System.out.println("Barang " + delete.nama + " diambil dari gudang.");
-            System.out.println("kode unik dalam biner: " + konversiDesimalKeBiner(delete.kode));
+            System.out.println("Barang " + delete.nama + " diambil dari Gudang.");
+            System.out.println("Kode unik dalam biner: " + konversiDesimanlkeBiner(delete.kode));
             return delete;
         } else {
             System.out.println("Tumpukan barang kosong.");
@@ -55,26 +58,54 @@ public class Gudang23 {
             System.out.println("Barang teratas: " + barangTeratas.nama);
             return barangTeratas;
         } else {
-            System.out.println("Tupukan barang kosong.");
+            System.out.println("Tumpukan barang kosong.");
             return null;
         }
     }
 
-    public void tampilkanBarang() {
-        if (!cekKosong()) {
-            System.out.println("Rincian tumpukan barang di Gudang: ");
-            for (int i = top; i >= 0; i--) {
-                System.out.printf("Kode %d: %s (Kategori %s)\n", tumpukan[i].kode, tumpukan[i].nama,
-                        tumpukan[i].kategori);
-            }
+    public Barang23 lihatBarangTerbawah() {
+        if (!isEmpty()) {
+            Barang23 barangTerbawah = tumpukan[0];
+            System.out.println("Barang terbawah: " + barangTerbawah.nama);
+            return barangTerbawah;
         } else {
-            System.out.println("Tumpukan barang kosong");
+            System.out.println("Tumpukan barang kosong.");
+            return null;
         }
     }
 
-    public String konversiDesimalKeBiner(int kode) {
-        StackKonversi stack = new StackKonversi();
-        while (kode > 0) {
+    public Barang23 cariBarangKode(int kodeBarang) {
+        for (int i = 0; i <= top; i++) {
+            if (tumpukan[i].kode == kodeBarang) {
+                return tumpukan[i];
+            }
+        }
+        return null;
+    }
+
+    public Barang23 cariBarangNama(String namaBarang) {
+        for (int i = 0; i <= top; i++) {
+            if (tumpukan[i].nama.equals(namaBarang)) {
+                return tumpukan[i];
+            }
+        }
+        return null;
+    }
+
+    public void tampilkanBarang() {
+        if (!cekKosong()) {
+            System.out.println("Rician Tumpukan barang di Gudang:");
+            for (int i = top; i >= 0; i--) {
+                System.out.println(tumpukan[i].nama);
+            }
+        } else {
+            System.out.println("Tumpukan barang kosong.");
+        }
+    }
+
+    public String konversiDesimalkeBiner(int kode) {
+        StackKonversi23 stack = new StackKonversi23();
+        while (kode != 0) {
             int sisa = kode % 2;
             stack.push(sisa);
             kode = kode / 2;
@@ -85,5 +116,4 @@ public class Gudang23 {
         }
         return biner;
     }
-
 }
