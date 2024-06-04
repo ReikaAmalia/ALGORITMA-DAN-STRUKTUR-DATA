@@ -458,4 +458,5 @@ case 5:
 
 
 10.4 Tugas
+Buatlah program antrian untuk mengilustasikan pesanan disebuah warung. Ketika seorang pembeli akan mengantri, maka dia harus mendaftarkan nama, dan nomor HP seperti yang digambarkan pada Class diagram
 
