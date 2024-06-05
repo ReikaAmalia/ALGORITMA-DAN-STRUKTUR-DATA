@@ -381,14 +381,12 @@ output:<br>
 
 Latihan Praktikum
 Waktu percobaan: 90 menit
-1. Modifikasi kode program pada class GraphMain sehingga terdapat menu program yang bersifat
-dinamis, setidaknya terdiri dari:
-a) Add Edge
-b) Remove Edge
-c) Degree
-d) Print Graph
-e) Cek Edge
-Pengguna dapat memilih menu program melalui input Scanner
-2. Tambahkan method updateJarak pada Percobaan 1 yang digunakan untuk mengubah jarak
-antara dua node asal dan tujuan!
-3. Tambahkan method hitungEdge untuk menghitung banyaknya edge yang terdapat di dalam graf!
+1. Modifikasi kode program pada class GraphMain sehingga terdapat menu program yang bersifat dinamis, setidaknya terdiri dari:<br>
+a) Add Edge<br>
+b) Remove Edge<br>
+c) Degree<br>
+d) Print Graph<br>
+e) Cek Edge<br>
+Pengguna dapat memilih menu program melalui input Scanner<br>
+2. Tambahkan method updateJarak pada Percobaan 1 yang digunakan untuk mengubah jarak antara dua node asal dan tujuan!<br>
+3. Tambahkan method hitungEdge untuk menghitung banyaknya edge yang terdapat di dalam graf!<br>
