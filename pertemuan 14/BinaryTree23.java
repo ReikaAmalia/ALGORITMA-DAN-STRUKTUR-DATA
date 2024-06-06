@@ -119,4 +119,62 @@ public class BinaryTree23 {
     private int findSmallestValue(Node23 root) {
         return root.left == null ? root.data : findSmallestValue(root.left);
     }
+
+    public int findMinValue() {
+        if (isEmpty()) {
+            System.out.println("Tree is empty.");
+            return Integer.MIN_VALUE;
+        }
+        Node23 current = root;
+        while (current.left != null) {
+            current = current.left;
+        }
+        return current.data;
+    }
+
+    public int findMaxValue() {
+        if (isEmpty()) {
+            System.out.println("Tree is empty.");
+            return Integer.MAX_VALUE;
+        }
+        Node23 current = root;
+        while (current.right != null) {
+            current = current.right;
+        }
+        return current.data;
+    }
+
+    public void displayLeafNodes() {
+        if (isEmpty()) {
+            System.out.println("Tree is empty.");
+            return;
+        }
+        System.out.print("Leaf nodes: ");
+        displayLeafNodesRecursive(root);
+        System.out.println();
+    }
+
+    private void displayLeafNodesRecursive(Node23 node) {
+        if (node != null) {
+            if (node.left == null && node.right == null) {
+                System.out.print(node.data + " ");
+            }
+            displayLeafNodesRecursive(node.left);
+            displayLeafNodesRecursive(node.right);
+        }
+    }
+
+    public int countLeaves() {
+        return countLeavesRecursive(root);
+    }
+
+    private int countLeavesRecursive(Node23 node) {
+        if (node == null) {
+            return 0;
+        }
+        if (node.left == null && node.right == null) {
+            return 1;
+        }
+        return countLeavesRecursive(node.left) + countLeavesRecursive(node.right);
+    }
 }
