@@ -460,3 +460,201 @@ case 5:
 10.4 Tugas
 Buatlah program antrian untuk mengilustasikan pesanan disebuah warung. Ketika seorang pembeli akan mengantri, maka dia harus mendaftarkan nama, dan nomor HP seperti yang digambarkan pada Class diagram
 
+code pembeli:<br>
+public class pembeli {
+    String nama;
+    int noHP;
+
+    pembeli(String nama, int noHP) {
+        this.nama = nama;
+        this.noHP = noHP;
+    }
+
+    pembeli() {
+    }
+}
+
+code queue:<br>
+public class Queue23 {
+    pembeli[] antrian;
+    int front, rear, size, max;
+
+    Queue23(int n) {
+        max = n;
+        antrian = new pembeli[max];
+        size = 0;
+        front = rear = -1;
+    }
+
+    public boolean IsEmpty() {
+        return size == 0;
+    }
+
+    public boolean IsFull() {
+        return size == max;
+    }
+
+    public void Enqueue(pembeli dt) {
+        if (IsFull()) {
+            System.out.println("Queue sudah penuh");
+        } else {
+            if (IsEmpty()) {
+                front = rear = 0;
+            } else {
+                if (rear == max - 1) {
+                    rear = 0;
+                } else {
+                    rear++;
+                }
+            }
+            antrian[rear] = dt;
+            size++;
+        }
+    }
+
+    public pembeli Dequeue() {
+        pembeli dt = new pembeli();
+        if (IsEmpty()) {
+            System.out.println("Queue kosong");
+        } else {
+            dt = antrian[front];
+            size--;
+            if (IsEmpty()) {
+                front = rear = -1;
+            } else {
+                if (front == max - 1) {
+                    front = 0;
+                } else {
+                    front++;
+                }
+            }
+        }
+        return dt;
+    }
+
+    public void print() {
+        if (IsEmpty()) {
+            System.out.println("Queue masih kosong");
+        } else {
+            int i = front;
+            while (i != rear) {
+                System.out.print(antrian[i] + " No HP ");
+                i = (i + 1) % max;
+            }
+            System.out.println(antrian[i] + " No HP ");
+            System.out.println("Jumlah Antrian = " + size);
+        }
+    }
+
+    public void peek() {
+        if (!IsEmpty()) {
+            System.out.println("Pembeli terdepan: " + antrian[front].nama + " No HP " + antrian[front].noHP);
+        } else {
+            System.out.println("Antrian kosong");
+        }
+    }
+
+    void peekRear() {
+        if (!IsEmpty()) {
+            System.out.println("Pembeli paling belakang : " + antrian[rear].nama + " No HP " + antrian[rear].noHP);
+        } else {
+            System.out.println("Queue masih kosong");
+        }
+    }
+
+    void peekPosition(String nama) {
+        int pos = -1;
+        int i = front;
+        while (i != rear) {
+            if (antrian[i].nama.equals(nama)) {
+                pos = i;
+            }
+            i = (i + 1) % max;
+        }
+        if (pos > 0) {
+            System.out.println("Pembeli yang anda cari berada pada posisi ke " + (pos + 1));
+        } else {
+            System.out.println("Pembeli yang anda cari tidak ada");
+        }
+    }
+
+    public void daftarPembeli() {
+        if (IsEmpty()) {
+            System.out.println("Queue masih kosong");
+        } else {
+            int i = front;
+            while (i != rear) {
+                System.out.println(antrian[i].nama + " No HP " + antrian[i].noHP);
+                i = (i + 1) % max;
+            }
+            System.out.println(antrian[i].nama + " No HP " + antrian[i].noHP);
+            System.out.println("Jumlah Antrian = " + size);
+        }
+    }
+}
+
+
+code main:<br>
+import java.util.Scanner;
+
+public class QueueMain23 {
+    public static void menu() {
+        System.out.println("1. Tambah antrian baru");
+        System.out.println("2. Antrian keluar");
+        System.out.println("3. Cek antrian terdepan");
+        System.out.println("4. Cek antrian belakang");
+        System.out.println("5. Cari antrian pembeli");
+        System.out.println("6. Cek semua antrian");
+        System.out.println("----------------------------------");
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Scanner Scanner = new Scanner(System.in);
+        System.out.print("Masukkan kapasitas antrian : ");
+        int jumlah = sc.nextInt();
+        Queue23 Q = new Queue23(jumlah);
+        int pilih;
+
+        do {
+            menu();
+            pilih = sc.nextInt();
+            switch (pilih) {
+                case 1:
+                    System.out.print("Masukkan Nama : ");
+                    String nama = sc.next();
+                    System.out.print("Masukkan no Hp : ");
+                    int noHP = Scanner.nextInt();
+                    pembeli pembeli = new pembeli(nama, noHP);
+                    Q.Enqueue(pembeli);
+                    break;
+                case 2:
+                    pembeli data = Q.Dequeue();
+                    if (data != null) {
+                        System.out.println("Antrian yang dikeluarkan : " + data.nama + " No HP " + data.noHP);
+                    }
+                    break;
+                case 3:
+                    Q.peek();
+                    break;
+                case 4:
+                    Q.peekRear();
+                    break;
+                case 5:
+                    System.out.println("Masukkan nama Pembeli : ");
+                    String cariNama = sc.next();
+                    Q.peekPosition(cariNama);
+                    break;
+                case 6:
+                    Q.daftarPembeli();
+                    break;
+            }
+        } while (pilih == 1 || pilih == 2 || pilih == 3 || pilih == 4 || pilih == 5 || pilih == 6);
+    }
+}
+
+output:<br>
+![alt text](<image/output percobaan 1.1.png>)<br>
+![alt text](<image/output percobaan 1.2.png>)<br>
+![alt text](<image/output percobaan 1.3.png>)<br>
+![alt text](<image/output percobaan 1.4.png>)<br>
