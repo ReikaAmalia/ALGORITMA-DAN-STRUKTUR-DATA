@@ -1,5 +1,9 @@
 public class MergeSorting23 {
-    public void merge(int data[], int left, int middle, int right) {
+
+    public void MergeSort23(int[] data) {
+        Sort23(data, 0, data.length - 1);
+    }
+    public void MergeSort23(int data[], int left, int middle, int right) {
         int[] temp = new int[data.length];
         for (int i = left; i <= right; i++) {
             temp[i] = data[i];
@@ -18,25 +22,26 @@ public class MergeSorting23 {
         }
         c++;
     }
-    int s = middle - a;
-    for (int i - 0; i <= s; i++) {
+    int s = middle - a + 1;
+    for (int i = 0; i < s; i++) {
         data[c + i] = temp[a + i];
-    }
+        }
     }
 
-    public void sort(int data[], int left, int right) {
+    public void Sort23(int data[], int left, int right) {
         if (left < right) {
             int middle = (left + right) / 2;
-            sort(data, left, middle);
-            sort(data, middle + 1, right);
-            merge(data, left, middle, right);
+            Sort23(data, left, middle);
+            Sort23(data, middle + 1, right);
+            MergeSort23(data, left, middle, right);
         }
     }
 
     public void printArray(int arr[]) {
-        fo (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i] + " ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
         System.out.println();
     }
+
 }

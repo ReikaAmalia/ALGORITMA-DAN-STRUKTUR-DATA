@@ -78,7 +78,7 @@ Mengapa hal tersebut bisa terjadi?<br>
 4. Jika Kode Buku yang dimasukkan dari Kode Buku terbesar ke terkecil (missal : 20215, 20214,
 20212, 20211, 20210) dan elemen yang dicari adalah 20210. Bagaimana hasil dari binary search?
 Apakah sesuai? Jika tidak sesuai maka ubahlah kode program binary seach agar hasilnya sesuai!<br>
-- 
+- Hasil tidak sesuai dikarenakan data tidak urut, cara mengubahnya adalah mengurutkan data nya terlebih dahulu
 
 6.4.1. Langkah-langkah Percobaan Merge Sort
 
@@ -87,7 +87,7 @@ code:<br>
 code main:<br>
 ![alt text](image/codemergesortingmain.png)<br>
 output:<br>
-
+![alt text](image/outputtt.png)<br>
 
 6.5. Latihan Praktikum
 1. Modifikasi percobaan searching diatas dengan ketentuan berikut ini

@@ -374,10 +374,14 @@ output:<br>
 2.2.3 Pertanyaan
 
 1. Perbaiki kode program Anda apabila terdapat error atau hasil kompilasi kode tidak sesuai!<br>
+- sudah
 2. Apa jenis graph yang digunakan pada Percobaan 2?<br>
+- grap matriks bertipe array
 3. Apa maksud dari dua baris kode berikut?<br>
 ![alt text](<image/soal no 3 percb 2.png>)<br>
+- Dari 2 baris kode tersebut bertujuan untuk menetapkan hubungan (edge) antara dua gedung dalam suatu graf. Baris pertama, gdg.makeEdge(1, 2, 70);, membuat edge dari gedung 1 ke gedung 2 dengan jarak 70 meter. Sementara baris kedua, gdg.makeEdge(2, 1, 80);, membuat edge dari gedung 2 ke gedung 1 dengan jarak 80 meter. Ini menunjukkan bahwa kedua gedung tersebut saling terhubung dalam graf, dan masing-masing memiliki jarak tertentu antara satu sama lain.
 4. Modifikasi kode program sehingga terdapat method untuk menghitung degree, termasuk inDegree dan outDegree!<br>
+-  
 
 Latihan Praktikum
 Waktu percobaan: 90 menit
@@ -390,3 +394,4 @@ e) Cek Edge<br>
 Pengguna dapat memilih menu program melalui input Scanner<br>
 2. Tambahkan method updateJarak pada Percobaan 1 yang digunakan untuk mengubah jarak antara dua node asal dan tujuan!<br>
 3. Tambahkan method hitungEdge untuk menghitung banyaknya edge yang terdapat di dalam graf!<br>
+

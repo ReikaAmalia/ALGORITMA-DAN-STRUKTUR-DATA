@@ -25,28 +25,24 @@ public class BukuMain23 {
             System.out.print("Stock         : ");
             int stock = s.nextInt();
 
-            Buku23 m = new Buku23(kodeBuku, judulBuku, tahunTerbit, Pengarang, stock);
+            Buku23 m = new Buku23(kodeBuku, judulBuku, tahunTerbit, pengarang, stock);
             data.tambah(m);
         }
-        System.out.println("----------------------------------------------------------------------");
-        System.out.println("Data keseluruhan Mahasiswa : ");
-
         System.out.println("----------------------------------------------------------------------");
         System.out.println("Data keseluruhan Buku : ");
         data.tampil();
 
         System.out.println("______________________________________________________________________");
-        System.out.println("______________________________________________________________________");
         System.out.println("Pencarian Data : ");
         System.out.println("Masukkan Kode Buku yang dicari: ");
         System.out.print("Kode Buku : ");
         String cari = s1.nextLine();
-        System.out.println("menggunakan sequetial Search");
+        System.out.println("menggunakan sequential Search");
         int posisi = data.FindSeqSearch(cari);
         data.Tampilposisi(cari, posisi);
         data.TampilData(cari, posisi);
 
-        Buku15 dataBuku = data.FindBuku(cari);
+        Buku23 dataBuku = data.FindBuku(cari);
         dataBuku.tampilDataBuku();
 
         System.out.println("==========================================");
