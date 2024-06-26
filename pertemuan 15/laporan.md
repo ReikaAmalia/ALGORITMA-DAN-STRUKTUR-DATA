@@ -295,15 +295,93 @@ output kedua:<br>
 ![alt text](<image/output kedua percobaan pertama 1.15.png>)<br>
 
 2.1.3 Pertanyaan
-1. Perbaiki kode program Anda apabila terdapat error atau hasil kompilasi kode tidak sesuai!
+1. Perbaiki kode program Anda apabila terdapat error atau hasil kompilasi kode tidak sesuai!<br>
+- sudah<br>
 2. Pada class Graph, terdapat atribut list[] bertipe DoubleLinkedList. Sebutkan tujuan pembuatan
-variabel tersebut!
-3. Jelaskan alur kerja dari method removeEdge!
+variabel tersebut!<br>
+- bertujuan untuk menyimpan adjacency list dari graf. Setiap elemen dalam array ini merupakan sebuah linked list yang berisi semua node yang terhubung ke node tertentu. Tujuan dari pembuatan variabel ini adalah untuk memodelkan struktur data graf menggunakan adjacency list, yang merupakan salah satu metode yang efisien untuk menyimpan graf terutama ketika graf tersebut adalah graf jarang<br>
+3. Jelaskan alur kerja dari method removeEdge!<br>
+- Method ini menerima dua parameter, asal (source) dan tujuan (destination), yang menunjukkan edge mana yang akan dihapus, Method ini memanggil method remove pada adjacency list dari node asal, yang bertujuan untuk menghapus node tujuan dari daftar tetangga node asal, Graf adalah undirected (tidak berarah), biasanya method ini juga akan menghapus node asal dari daftar tetangga node tujuan, tetapi dalam implementasi yang diberikan hanya menghapus satu arah edge.<br>
 4. Apakah alasan pemanggilan method addFirst() untuk menambahkan data, bukan method add
-jenis lain saat digunakan pada method addEdge pada class Graph?
+jenis lain saat digunakan pada method addEdge pada class Graph?<br>
+- Lebih sederhana dan menghemat waktu<br>
 5. Modifikasi kode program sehingga dapat dilakukan pengecekan apakah terdapat jalur antara
-suatu node dengan node lainnya, seperti contoh berikut (Anda dapat memanfaatkan Scanner).
-image/soal no 5.png
+suatu node dengan node lainnya, seperti contoh berikut (Anda dapat memanfaatkan Scanner).<br>
+image/soal no 5.png<br>
+- public class Graph23 {
+    int vertex;
+    DoubleLinkedList23 list[];
+
+    public Graph23(int v) {
+        vertex = v;
+        list = new DoubleLinkedList23[v];
+        for (int i = 0; i < v; i++) {
+            list[i] = new DoubleLinkedList23();
+        }
+    }
+
+    public void addEdge(int asal, int tujuan, int jarak) {
+        list[asal].addFirst(tujuan, jarak);
+    }
+
+    public void degree(int asal) throws Exception {
+        int k, totalIn = 0, totalOut = 0;
+        for (int i = 0; i < vertex; i++) {
+            // inDegree
+            for (int j = 0; j < list[i].size; j++) {
+                if (list[i].get(j) == asal) {
+                    ++totalIn;
+                }
+            }
+            // outDegree
+            k = 0;
+            for (int j = 0; j < list[asal].size(); j++) {
+                k++;
+            }
+            totalOut = k;
+        }
+        System.out.println("InDegree dari Gedung " + (char) ('A' + asal) + ": " + totalIn);
+        System.out.println("OutDegree dari Gedung " + (char) ('A' + asal) + ": " + totalOut);
+        System.out.println("Degree dari Gedung " + (char) ('A' + asal) + ": " + (totalIn + totalOut));
+    }
+
+    public void removeEdge(int asal, int tujuan) throws Exception {
+        for (int i = 0; i < vertex; i++) {
+            if (i == tujuan) {
+                list[asal].remove(tujuan);
+            }
+        }
+    }
+
+    public void removeAllEdges() {
+        for (int i = 0; i < vertex; i++) {
+            list[i].clear();
+        }
+        System.out.println("Graf berhasil dikosongkan");
+    }
+
+    public void printGraph() throws Exception {
+        for (int i = 0; i < vertex; i++) {
+            if (list[i].size() > 0) {
+                System.out.println("Gedung " + (char) ('A' + i) + " terhubung dengan ");
+                for (int j = 0; j < list[i].size(); j++) {
+                    System.out.print((char) ('A' + list[i].get(j)) + "(" + list[i].getJarak(j) + "m), ");
+                }
+                System.out.println("");
+            }
+        }
+        System.out.println("");
+    }
+    
+    public boolean cekTetangga(int asal, int tujuan) throws Exception {
+        for (int i = 0; i < list[asal].size(); i++) {
+            if (list[asal].get(i) == tujuan) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 
 
 PERCOBAAN 2
@@ -381,7 +459,32 @@ output:<br>
 ![alt text](<image/soal no 3 percb 2.png>)<br>
 - Dari 2 baris kode tersebut bertujuan untuk menetapkan hubungan (edge) antara dua gedung dalam suatu graf. Baris pertama, gdg.makeEdge(1, 2, 70);, membuat edge dari gedung 1 ke gedung 2 dengan jarak 70 meter. Sementara baris kedua, gdg.makeEdge(2, 1, 80);, membuat edge dari gedung 2 ke gedung 1 dengan jarak 80 meter. Ini menunjukkan bahwa kedua gedung tersebut saling terhubung dalam graf, dan masing-masing memiliki jarak tertentu antara satu sama lain.
 4. Modifikasi kode program sehingga terdapat method untuk menghitung degree, termasuk inDegree dan outDegree!<br>
--  
+-  public int inDegree(int vertex) {
+        int inDegree = 0;
+        for (int i = 0; i < this.vertex; i++) {
+            if (matriks[i][vertex] != 0) { 
+                inDegree++;
+            }
+        }
+        return inDegree;
+    }
+
+    public int outDegree(int vertex) {
+        int outDegree = 0;
+        for (int j = 0; j < this.vertex; j++) {
+            if (matriks[vertex][j] != 0) { 
+                outDegree++;
+            }
+        }
+        return outDegree;
+    }
+
+    public int degree(int vertex) {
+        return outDegree(vertex) + inDegree(vertex);
+
+    }
+
+
 
 Latihan Praktikum
 Waktu percobaan: 90 menit
@@ -392,6 +495,103 @@ c) Degree<br>
 d) Print Graph<br>
 e) Cek Edge<br>
 Pengguna dapat memilih menu program melalui input Scanner<br>
-2. Tambahkan method updateJarak pada Percobaan 1 yang digunakan untuk mengubah jarak antara dua node asal dan tujuan!<br>
-3. Tambahkan method hitungEdge untuk menghitung banyaknya edge yang terdapat di dalam graf!<br>
+- import java.util.Scanner;
 
+public class GraphMain23 {
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        Graph23 gedung = new Graph23(6);
+
+        while (true) {
+            System.out.println("\nMenu Program:");
+            System.out.println("a) Add Edge");
+            System.out.println("b) Remove Edge");
+            System.out.println("c) Degree");
+            System.out.println("d) Print Graph");
+            System.out.println("e) Cek Edge");
+            System.out.println("x) Keluar");
+
+            System.out.print("Pilih menu: ");
+            String pilihan = sc.nextLine();
+
+            switch (pilihan) {
+                case "a":
+                    System.out.print("Masukkan gedung asal: ");
+                    int asalA = sc.nextInt();
+                    System.out.print("Masukkan gedung tujuan: ");
+                    int tujuanA = sc.nextInt();
+                    System.out.print("Masukkan jarak: ");
+                    int jarakA = sc.nextInt();
+                    gedung.addEdge(asalA, tujuanA, jarakA);
+                    break;
+                case "b":
+                    System.out.print("Masukkan gedung asal: ");
+                    int asalB = sc.nextInt();
+                    System.out.print("Masukkan gedung tujuan: ");
+                    int tujuanB = sc.nextInt();
+                    gedung.removeEdge(asalB, tujuanB);
+                    break;
+                case "c":
+                    System.out.print("Masukkan gedung: ");
+                    int gedungC = sc.nextInt();
+                    gedung.degree(gedungC);
+                    break;
+                case "d":
+                    gedung.printGraph();
+                    break;
+                case "e":
+                    System.out.print("Masukkan gedung asal: ");
+                    int asalE = sc.nextInt();
+                    System.out.print("Masukkan gedung tujuan: ");
+                    int tujuanE = sc.nextInt();
+                    boolean tetangga = gedung.cekTetangga(asalE, tujuanE);
+                    char gedungAsal = (char) ('A' + asalE);
+                    char gedungTujuan = (char) ('A' + tujuanE);
+                    if (tetangga) {
+                        System.out.println("Gedung " + gedungAsal + " dan " + gedungTujuan + " bertetangga");
+                    } else {
+                        System.out.println("Gedung " + gedungAsal + " dan " + gedungTujuan + " tidak bertetangga");
+                    }
+                    break;
+                case "x":
+                    System.out.println("Terima kasih telah menggunakan program.");
+                    System.exit(0);
+                default:
+                    System.out.println("Pilihan tidak valid. Silakan pilih menu yang tersedia.");
+            }
+            sc.nextLine(); 
+        }
+    }
+}
+
+
+2. Tambahkan method updateJarak pada Percobaan 1 yang digunakan untuk mengubah jarak antara dua node asal dan tujuan!<br>
+- public void updateJarak(int asal, int tujuan, int jarakBaru) {
+        try {
+            Node23 current = head;
+            while (current != null) {
+                if (current.data == tujuan) {
+                    current.jarak = jarakBaru;
+                    System.out.println(
+                            "Jarak antara Gedung " + (char) ('A' + asal) + " dan Gedung " + (char) ('A' + tujuan)
+                                    + " berhasil diupdate menjadi " + jarakBaru + " meter.");
+                    return;
+                }
+                current = current.next;
+            }
+            System.out.println("Tidak dapat memperbarui jarak: Gedung " + (char) ('A' + asal)
+                    + " tidak terhubung dengan Gedung " + (char) ('A' + tujuan));
+        } catch (Exception e) {
+            System.out.println("Terjadi kesalahan saat memperbarui jarak: " + e.getMessage());
+        }
+    }
+
+
+3. Tambahkan method hitungEdge untuk menghitung banyaknya edge yang terdapat di dalam graf!<br>
+-  public int hitungEdge() {
+        int totalEdge = 0;
+        for (int i = 0; i < vertex; i++) {
+            totalEdge += list[i].size();
+        }
+        return totalEdge;
+    }

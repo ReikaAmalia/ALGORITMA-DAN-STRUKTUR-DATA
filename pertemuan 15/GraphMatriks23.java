@@ -1,4 +1,5 @@
 public class GraphMatriks23 {
+
     int vertex;
     int[][] matriks;
 
