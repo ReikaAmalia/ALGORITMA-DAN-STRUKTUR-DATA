@@ -880,3 +880,23 @@ output:<br>
 ![alt text](<image/tugas prak 12.2.png>)<br>
 ![alt text](<image/tugas prak 12.3.png>)<br>
 ![alt text](<image/tugas prak 12.4.png>)<br>
+
+
+2. Buatlah program daftar film yang terdiri dari id, judul dan rating menggunakan double linked lists, bentuk program memiliki fitur pencarian melalui ID Film dan pengurutan Rating secara descending. Class Film wajib diimplementasikan dalam soal ini.<br>
+
+
+- package tugas2;
+public class Film23 {
+    int id;
+    String judul;
+    double rating;
+    Film23 prev, next;
+
+    Film23(Film23 prev, int id, String judul, double rate, Film23 next) {
+        this.prev = prev;
+        this.id = id;
+        this.judul = judul;
+        rating = rate;
+        this.next = next;
+    }
+}
